@@ -10,4 +10,15 @@ function attitude321 = EulerAngles321(DCM)
 % attitude321 = [alpha, beta, gamma]' (In ASEN 3728 notation, this would be
 % equivalent to [phi, theta, psi]'.
 
+R11 = DCM(1,1);
+R12 = DCM(1,2);
+R23 = DCM(2,3);
+R33 = DCM(3,3);
+
+alpha = atan(R23/R33);
+beta = -asin(R13);
+gamma = atan(R12/R11);
+
+attitude321 = [alpha, beta, gamma];
+
 end
