@@ -32,6 +32,7 @@ function [t_vec, av_pos_inert, av_att, tar_pos_inert, tar_att] = LoadASPENData(f
 % the data file s format to the final outputs.
 
 data = readmatrix(filename);
+data(isnan(data))= 0;
 
 % creating t_vec from converting frame number
 frequency = 100; % frequency of when each frame is taken
