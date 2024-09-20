@@ -52,6 +52,6 @@ tar_pos_inert = data(:,5:7)/1000;
 tar_att = data(:,2:4);
 
 % using ConvertASPENData to covert the information 
-[av_pos_inert,av_att,tar_pos_inert,tar_att] = ConvertASPENData(av_pos_inert,av_att,tar_pos_inert,tar_att);
+[av_pos_inert,av_att,tar_pos_inert,tar_att] = ConvertASPENData(av_pos_inert',av_att',tar_pos_inert',tar_att');
 
 end 
