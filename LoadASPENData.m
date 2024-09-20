@@ -31,4 +31,28 @@ function [t_vec, av_pos_inert, av_att, tar_pos_inert, tar_att] = LoadASPENData(f
 % This function must call the ConvertASPENData.m function to convert from 
 % the data file s format to the final outputs.
 
+data = readmatrix(filename);
+data(1:3,:) = [];
+data(:,2) = [];
+
+% creating t_vec from converting frame number
+frequency = 100; % frequency of when each frame is taken
+period = 1/frequency; % time between each frame 
+t_vec = data(:,1)*period;
+
+% creating av_pos_inert and converting from mm to m
+av_pos_inert = data(:,11:13)/1000;
+
+% creating av_att
+av_att = data(:,8:10);
+
+% creating tar_pos_inert and converting from mm to m
+tar_pos_inert = data(:,5:7)/1000;
+
+% creating tar_att
+tar_att = data(:,2:4);
+
+% using ConvertASPENData to covert the information 
+[av_pos_inert,av_att,tar_pos_inert,tar_att] = ConvertASPENData(av_pos_inert,av_att,tar_pos_inert,tar_att);
+
 end 
