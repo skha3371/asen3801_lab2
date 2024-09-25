@@ -12,6 +12,7 @@ function attitude321 = EulerAngles321(DCM)
 
 R11 = DCM(1,1);
 R12 = DCM(1,2);
+R13 = DCM(1,3);
 R23 = DCM(2,3);
 R33 = DCM(3,3);
 
